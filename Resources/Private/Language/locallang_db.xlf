@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="EXT:authtoken/Resources/Private/Language/locallang_db.xlf" date="2022-09-02T18:33:05Z" product-name="authtoken">
+		<header/>
+		<body>
+			<trans-unit id="tx_authtoken_domain_model_token" resname="tx_authtoken_domain_model_token">
+				<source>Personal access token</source>
+			</trans-unit>
+			<trans-unit id="tx_authtoken_domain_model_token.note" resname="tx_authtoken_domain_model_token.note">
+				<source>Note</source>
+			</trans-unit>
+			<trans-unit id="tx_authtoken_domain_model_token.token" resname="tx_authtoken_domain_model_token.token">
+				<source>Token</source>
+			</trans-unit>
+			<trans-unit id="tx_authtoken_domain_model_token.last_access" resname="tx_authtoken_domain_model_token.last_access">
+				<source>Last access</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

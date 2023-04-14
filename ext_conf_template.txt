@@ -1,0 +1,2 @@
+# cat=AuthHeader; type=string; label=Request key for auth token in header: Default: X-User-Token
+tokenKey =
