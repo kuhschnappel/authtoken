@@ -1,7 +1,7 @@
 <?php
 
 $EM_CONF[$_EXTKEY] = [
-	'title' => 'Kuhschnappel Authtoken',
+	'title' => 'Kuhschnappel - Authtoken',
 	'description' => '',
 	'category' => 'plugin',
 	'author' => 'Mike Zimmer',
@@ -10,7 +10,7 @@ $EM_CONF[$_EXTKEY] = [
 	'uploadfolder' => NULL,
 	'createDirs' => NULL,
 	'clearCacheOnLoad' => true,
-	'version' => '1.0.1',
+	'version' => '1.0.3',
 	'constraints' => [
 		'depends' => [
             'typo3' => '11.5.0-11.5.99',
