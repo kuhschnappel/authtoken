@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
 	'title' => 'Kuhschnappel - Authtoken',
-	'description' => '',
+	'description' => 'Once installed you can create authentication tokens for frontend users in the backend. You can then retrieve protected pages by submitting this token as an "X-User-Token" with the header.',
 	'category' => 'plugin',
 	'author' => 'Mike Zimmer',
 	'author_email' => 'kuhschnappel@gmail.com',
@@ -10,7 +10,7 @@ $EM_CONF[$_EXTKEY] = [
 	'uploadfolder' => NULL,
 	'createDirs' => NULL,
 	'clearCacheOnLoad' => true,
-	'version' => '1.0.3',
+	'version' => '1.0.4',
 	'constraints' => [
 		'depends' => [
             'typo3' => '11.5.0-11.5.99',

@@ -1,10 +1,11 @@
 {
     "name": "kuhschnappel/authtoken",
     "type": "typo3-cms-extension",
-    "description": "Create user tokens for authentication",
+    "description": "Once installed you can create authentication tokens for frontend users in the backend. You can then retrieve protected pages by submitting this token as an \"X-User-Token\" with the header.",
     "authors": [
         {
             "name": "Mike Zimmer",
+            "email": "kuhschnappel@gmail.com",
             "role": "Developer"
         }
     ],
