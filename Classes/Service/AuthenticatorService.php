@@ -49,6 +49,12 @@ class AuthenticatorService extends AbstractAuthenticationService
     public $token_lastAccess_column = 'last_access';
 
     /**
+     * Column name for usage counter
+     * @var string
+     */
+    public $token_usageCounter_column = 'usage_counter';
+
+    /**
      * Column for user-id
      * @var string
      */
@@ -115,14 +121,20 @@ class AuthenticatorService extends AbstractAuthenticationService
         if($user === false)
             return $this->authenticatedUser;
 
-        // Updating lastAccess_column carrying information about last access with token.
-        $this->updateLastAccessTimestamp($tokenRecord['uid']);
-
+        $this->updateUserToken($tokenRecord);
         $this->authenticatedUser = $user;
 
         return $this->authenticatedUser;
     }
 
+
+    /**
+     *
+     * @param array $user
+     * 
+     * @return int
+     * 
+     */
     public function authUser(array $user): int
     {
         if ($this->authenticatedUser() !== false) {
@@ -180,22 +192,29 @@ class AuthenticatorService extends AbstractAuthenticationService
     }
 
     /**
-     * Updates the last login column in the user with the given id
+     * Updates the last usage and counter in found user token with the given id
      *
-     * @param int $uid
+     * @param array $tokenRecord
+     * 
+     * @return void
+     * 
      */
-    protected function updateLastAccessTimestamp(int $uid)
+    protected function updateUserToken(array $tokenRecord) : void
     {
         if ($this->token_lastAccess_column) {
             $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($this->token_table);
             $connection->update(
                 $this->token_table,
-                [$this->token_lastAccess_column => $GLOBALS['EXEC_TIME']],
-                ['uid' => $uid]
+                [
+                    $this->token_lastAccess_column => $GLOBALS['EXEC_TIME'],
+                    $this->token_usageCounter_column => $tokenRecord[$this->token_usageCounter_column] + 1
+                ],
+                [
+                    'uid' => $tokenRecord['uid']
+                ]
             );
             $this->user[$this->token_lastAccess_column] = $GLOBALS['EXEC_TIME'];
         }
     }
-
 
 }
