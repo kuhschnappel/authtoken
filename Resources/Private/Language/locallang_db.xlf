@@ -15,6 +15,9 @@
 			<trans-unit id="tx_authtoken_domain_model_token.last_access" resname="tx_authtoken_domain_model_token.last_access">
 				<source>Last access</source>
 			</trans-unit>
+			<trans-unit id="tx_authtoken_domain_model_token.usage_counter" resname="tx_authtoken_domain_model_token.usage_counter">
+				<source>Usage counter</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

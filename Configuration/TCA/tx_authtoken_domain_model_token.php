@@ -19,7 +19,7 @@ return [
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'note, token, last_access, --div--; LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '0' => ['showitem' => 'note, token, last_access, usage_counter, --div--; LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
         'hidden' => [
@@ -98,6 +98,15 @@ return [
                 'eval' => 'datetime,int',
                 'default' => 0,
                 'readOnly' => 1
+            ],
+        ],
+        'usage_counter' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang_db.xlf:tx_authtoken_domain_model_token.usage_counter',
+            'config' => [
+                'type' => 'input',
+                'readOnly' => 1,
+                'size' => 10
             ],
         ],
     ],
