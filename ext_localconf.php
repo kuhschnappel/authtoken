@@ -17,7 +17,7 @@ defined('TYPO3') or die();
             'title' => 'Authentication',
             'description' => 'An alternative way to access restricted content by token',
 
-            'subtype' => 'authUserFE',
+            'subtype' => 'authUserFE,getUserFE',
 
             'available' => true,
             'priority' => 60,
