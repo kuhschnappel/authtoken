@@ -27,6 +27,8 @@ You can change the variable name used for token authentication.
 |-------------|--------------|--------------------------------------------------------|
 | 2.1.0       | 2023-09-03   | Add usage counter.                                     |
 |             |              | Bugfix service integration to prevent doubled request. |
+| 2.1.1       | 2023-09-03   | Revert Wrong Bugfix.                                   |
+| 2.1.2       | 2023-09-03   | Bugfix doubled token update.                           |
 
 ## Links
 
