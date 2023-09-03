@@ -108,7 +108,7 @@ class AuthenticatorService extends AbstractAuthenticationService
 
         $tokenRecord = $this->fetchUserRecord($token, '', $dbTokenSetup);
 
-        if($tokenRecord === false)
+        if ($tokenRecord === false)
             return $this->authenticatedUser;
 
         $dbUserSetup = [
@@ -118,10 +118,13 @@ class AuthenticatorService extends AbstractAuthenticationService
             'table' => $this->user_table,
         ];
         $user = $this->fetchUserRecord($tokenRecord[$this->userid_column], '', $dbUserSetup);
-        if($user === false)
+        if ($user === false)
             return $this->authenticatedUser;
 
-        $this->updateUserToken($tokenRecord);
+        // update token only on authUserFE subtype
+        if ($this->info['requestedServiceSubType'] == 'authUserFE') 
+            $this->updateUserToken($tokenRecord);
+
         $this->authenticatedUser = $user;
 
         return $this->authenticatedUser;
