@@ -1,5 +1,7 @@
+.. include:: /Includes.rst.txt
+
 ===========
-Authentification system
+Authtoken
 ===========
 
 :Extension key:

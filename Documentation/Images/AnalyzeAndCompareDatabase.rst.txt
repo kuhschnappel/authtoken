@@ -1,0 +1,5 @@
+
+.. figure:: /Images/AnalyzeAndCompareDatabase.png
+   :class: with-shadow
+
+   Analyse Database Structure
