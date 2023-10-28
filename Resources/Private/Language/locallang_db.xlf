@@ -7,13 +7,13 @@
 				<source>Personal access token</source>
 			</trans-unit>
 			<trans-unit id="tx_authtoken_domain_model_token.note" resname="tx_authtoken_domain_model_token.note">
-				<source>Note</source>
+				<source>Internal notes</source>
 			</trans-unit>
 			<trans-unit id="tx_authtoken_domain_model_token.token" resname="tx_authtoken_domain_model_token.token">
 				<source>Token</source>
 			</trans-unit>
 			<trans-unit id="tx_authtoken_domain_model_token.last_access" resname="tx_authtoken_domain_model_token.last_access">
-				<source>Last access</source>
+				<source>Last usage</source>
 			</trans-unit>
 			<trans-unit id="tx_authtoken_domain_model_token.usage_counter" resname="tx_authtoken_domain_model_token.usage_counter">
 				<source>Usage counter</source>
