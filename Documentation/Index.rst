@@ -1,5 +1,5 @@
 ===========
-Authentification system
+Authtoken
 ===========
 
 :Extension key:
