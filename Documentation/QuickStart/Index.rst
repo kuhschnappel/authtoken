@@ -23,7 +23,7 @@ permissions.
 In the module menu to the left navigate to :guilabel:`Admin Tools > Maintanance`,
 then click on :guilabel:`Analyze database` and create all.
 
-.. include:: /Images/AnalyzeAndCompareDatabase.rst.txt
+#.. include:: /Images/AnalyzeAndCompareDatabase.rst.txt
 
 Clear all caches
 ----------------
@@ -31,4 +31,4 @@ Clear all caches
 In the same module :guilabel:`Admin Tools > Maintanance` you can also
 conveniently clear all caches by clicking the button :guilabel:`Flush cache`.
 
-.. include:: /Images/FlushCache.rst.txt
+#.. include:: /Images/FlushCache.rst.txt
