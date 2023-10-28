@@ -1,5 +1,0 @@
-
-.. figure:: /Images/FlushCache.png
-   :class: with-shadow
-
-   Flush TYPO3 and PHP Cache
