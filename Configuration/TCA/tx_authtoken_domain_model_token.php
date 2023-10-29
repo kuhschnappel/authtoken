@@ -2,7 +2,9 @@
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang_db.xlf:tx_authtoken_domain_model_token',
+        'descriptionColumn' => 'note',
         'label' => 'note',
+        'label_alt' => 'uid',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
@@ -19,7 +21,7 @@ return [
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'note, token, last_access, usage_counter, --div--; LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '0' => ['showitem' => 'token, last_access, usage_counter, note, --div--; LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
     ],
     'columns' => [
         'hidden' => [
@@ -45,9 +47,6 @@ return [
                 'renderType' => 'inputDateTime',
                 'eval' => 'datetime,int',
                 'default' => 0,
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true
-                ]
             ],
         ],
         'endtime' => [
@@ -61,19 +60,15 @@ return [
                 'range' => [
                     'upper' => mktime(0, 0, 0, 1, 1, 2038)
                 ],
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true
-                ]
             ],
         ],
         'note' => [
             'exclude' => true,
             'label' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang_db.xlf:tx_authtoken_domain_model_token.note',
             'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim,required',
-                'default' => ''
+                'type' => 'text',
+                'rows' => 10,
+                'cols' => 48
             ],
         ],
         'token' => [

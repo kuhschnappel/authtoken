@@ -1,0 +1,5 @@
+
+.. figure:: /Images/ExtensionConfiguration.png
+   :class: with-shadow
+
+    Extension Configuration

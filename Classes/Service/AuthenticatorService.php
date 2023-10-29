@@ -4,6 +4,7 @@ namespace Kuhschnappel\Authtoken\Service;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Authentication\AbstractAuthenticationService;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
+use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DefaultRestrictionContainer;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
@@ -122,7 +123,7 @@ class AuthenticatorService extends AbstractAuthenticationService
             return $this->authenticatedUser;
 
         // update token only on authUserFE subtype
-        if ($this->info['requestedServiceSubType'] == 'authUserFE') 
+        if ($this->info['requestedServiceSubType'] == 'authUserFE')
             $this->updateUserToken($tokenRecord);
 
         $this->authenticatedUser = $user;
@@ -134,9 +135,7 @@ class AuthenticatorService extends AbstractAuthenticationService
     /**
      *
      * @param array $user
-     * 
      * @return int
-     * 
      */
     public function authUser(array $user): int
     {
@@ -198,9 +197,7 @@ class AuthenticatorService extends AbstractAuthenticationService
      * Updates the last usage and counter in found user token with the given id
      *
      * @param array $tokenRecord
-     * 
      * @return void
-     * 
      */
     protected function updateUserToken(array $tokenRecord) : void
     {
@@ -209,14 +206,13 @@ class AuthenticatorService extends AbstractAuthenticationService
             $connection->update(
                 $this->token_table,
                 [
-                    $this->token_lastAccess_column => $GLOBALS['EXEC_TIME'],
+                    $this->token_lastAccess_column => GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('date', 'timestamp'),
                     $this->token_usageCounter_column => $tokenRecord[$this->token_usageCounter_column] + 1
                 ],
                 [
                     'uid' => $tokenRecord['uid']
                 ]
             );
-            $this->user[$this->token_lastAccess_column] = $GLOBALS['EXEC_TIME'];
         }
     }
 
