@@ -21,7 +21,7 @@ return [
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'token, last_access, usage_counter, note, --div--; LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '0' => ['showitem' => 'token, last_access, usage_counter, note, --div--; LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, starttime, endtime'],
     ],
     'columns' => [
         'hidden' => [
