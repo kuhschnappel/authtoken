@@ -12,7 +12,7 @@ How to create a token
 You can create the personalized token(s) in the frontend user data mask in the general tab after the password field.
 The token itself is created automatically and cannot be changed. Of course, you have the option of deleting the token at any time or restricting it to a specific period of time.
 
-.. include:: /Images/AnalyzeAndCompBackendFeUserEditToken.rst.txt
+.. include:: /Images/BackendFeUserEditToken.rst.txt
 
 Extension Configuration (optional)
 ----------------------------------
