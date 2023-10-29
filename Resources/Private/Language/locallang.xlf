@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="EXT:authtoken/Resources/Private/Language/locallang_db.xlf" date="2022-09-02T18:33:05Z" product-name="authtoken">
+	<file source-language="en" datatype="plaintext" original="EXT:authtoken/Resources/Private/Language/locallang.xlf" date="2022-09-02T18:33:05Z" product-name="authtoken">
 		<header/>
 		<body>
+			<trans-unit id="mod.feUsersToken.label" resname="mod.feUsersToken.label">
+				<source>AuthToken</source>
+			</trans-unit>
 			<trans-unit id="tx_authtoken_domain_model_token" resname="tx_authtoken_domain_model_token">
 				<source>Personal access token</source>
 			</trans-unit>
@@ -17,6 +20,9 @@
 			</trans-unit>
 			<trans-unit id="tx_authtoken_domain_model_token.usage_counter" resname="tx_authtoken_domain_model_token.usage_counter">
 				<source>Usage counter</source>
+			</trans-unit>
+			<trans-unit id="tx_authtoken_domain_model_token.frontend_user" resname="tx_authtoken_domain_model_token.frontend_user">
+				<source>Frontend User</source>
 			</trans-unit>
 		</body>
 	</file>
