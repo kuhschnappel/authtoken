@@ -1,0 +1,5 @@
+
+.. figure:: /Images/BackendFeUserEditToken.png
+   :class: with-shadow
+
+   Add Token for Frontend User
