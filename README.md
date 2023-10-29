@@ -30,6 +30,7 @@ You can change the variable name used for token authentication.
 | 2.1.1       | 2023-09-03   | Revert Wrong Bugfix.                                   |
 | 2.1.2       | 2023-09-03   | Bugfix doubled token update.                           |
 | 2.2.0       | 2023-10-28   | Generalization to use extension in 11 & 12, bugfixes.  |
+| 2.2.1       | 2023-10-29   | Add typo3 rendered documentation.  |
 
 ## Links
 
