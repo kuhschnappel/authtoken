@@ -59,5 +59,10 @@
         </div>
     </div>
 </f:for>
+<f:if condition="{tokens}">
+    <f:else>
+        <p><f:translate key="tx_authtoken_domain_model_token.none" /></p>
+    </f:else>
+</f:if>
 
 </html>

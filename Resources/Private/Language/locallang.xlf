@@ -24,6 +24,9 @@
 			<trans-unit id="tx_authtoken_domain_model_token.frontend_user" resname="tx_authtoken_domain_model_token.frontend_user">
 				<source>Frontend User</source>
 			</trans-unit>
+			<trans-unit id="tx_authtoken_domain_model_token.none" resname="tx_authtoken_domain_model_token.none">
+				<source>No tokens created. Edit Users to add a Token.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
