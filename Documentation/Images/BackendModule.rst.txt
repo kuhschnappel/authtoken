@@ -1,0 +1,5 @@
+
+.. figure:: /Images/BackendModule.png
+   :class: with-shadow
+
+   Simple Backend Module

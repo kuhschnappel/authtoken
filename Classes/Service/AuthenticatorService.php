@@ -122,6 +122,18 @@ class AuthenticatorService extends AbstractAuthenticationService
         if ($user === false)
             return $this->authenticatedUser;
 
+        // check user row is active
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getQueryBuilderForTable('fe_users');
+        $queryBuilder->select('uid')
+            ->from('fe_users')
+            ->where(
+                $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($user['uid'], \PDO::PARAM_INT))
+            )
+            ->setMaxResults(1);
+        if ($queryBuilder->execute()->fetch() === false)
+            return $this->authenticatedUser;
+
         // update token only on authUserFE subtype
         if ($this->info['requestedServiceSubType'] == 'authUserFE')
             $this->updateUserToken($tokenRecord);

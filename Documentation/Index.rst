@@ -48,7 +48,7 @@ The quickest way to test access with the token is to use the console using curl:
 
          .. container:: card-body
 
-            A quick introduction in how to use this extension.
+            A quick introduction how to install this extension.
 
    .. container:: col-12 col-md-6 pl-0 pr-3 py-3 m-0
 
@@ -60,7 +60,7 @@ The quickest way to test access with the token is to use the console using curl:
 
          .. container:: card-body
 
-            Configuration and how to use the extension.
+            How the extension must be configured in order to use it.
 
 .. Table of Contents
 
