@@ -20,3 +20,10 @@ Extension Configuration (optional)
 If you want to change the naming for the token Field in the header data, you can define it here :guilabel:`Admin Tools > Settings` you have to click on :guilabel:`Extension Configuration`.
 
 .. include:: /Images/ExtensionConfiguration.rst.txt
+
+Backend Module
+--------------
+
+In the backend module, admin users can see all created tokens including publishing status and associated frontend user. Look here :guilabel:`Web > AuthToken`.
+
+.. include:: /Images/BackendModule.rst.txt
