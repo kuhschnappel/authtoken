@@ -4,28 +4,12 @@ declare(strict_types=1);
 
 namespace Kuhschnappel\Authtoken\Domain\Model;
 
-use Kuhschnappel\Authtoken\Domain\Repository\FrontendUserRepository;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Token extends AbstractEntity
 {
-    /**
-     * frontendUserRepository
-     *
-     * @var FrontendUserRepository
-     */
-    private FrontendUserRepository $frontendUserRepository;
-
-    /**
-     * inject frontendUserRepository
-     *
-     * @param FrontendUserRepository $frontendUserRepository
-     * @return void
-     */
-    public function injectRepositories(FrontendUserRepository $frontendUserRepository): void
-    {
-        $this->frontendUserRepository = $frontendUserRepository;
-    }
 
     /**
      * @var int
@@ -152,13 +136,29 @@ class Token extends AbstractEntity
     }
 
     /**
-     * Returns the feuser.
+     * Get specific user data based on feuser UID
      *
-     * @return \Kuhschnappel\Authtoken\Domain\Model\FrontendUser|null The user model or null if not found.
+     * @return array
      */
-    public function getFeuser()
+    public function getFeuser(): array
     {
-        return $this->frontendUserRepository->findByUid($this->feuserUid);
+        $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getQueryBuilderForTable('fe_users');
+
+        $queryBuilder->getRestrictions()->removeAll();
+
+        $queryBuilder->select('uid', 'disable', 'starttime', 'endtime', 'username')
+            ->from('fe_users')
+            ->where(
+                $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($this->feuserUid, \PDO::PARAM_INT))
+            )
+            ->setMaxResults(1);
+
+        $statement = $queryBuilder->execute();
+
+        $result = $statement->fetch();
+
+        return !empty($result) ? $result : [];
     }
 
     /**

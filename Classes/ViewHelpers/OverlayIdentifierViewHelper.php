@@ -29,31 +29,75 @@ final class OverlayIdentifierViewHelper extends AbstractViewHelper
        RenderingContextInterface $renderingContext
    ) {
 
-        if (method_exists($arguments['item'], 'getHidden') && $arguments['item']->getHidden()) {
+        $item = $arguments['item'];
+
+        $hidden = null;
+        $disable = null;
+        $starttime = null;
+        $endtime = null;
+
+        if (is_array($item)) {
+
+            if (isset($item['hidden'])) {
+                $hidden = $item['hidden'];
+            }
+
+            if (isset($item['disable'])) {
+                $disable = $item['disable'];
+            }
+
+            if (isset($item['starttime'])) {
+                $starttime  = $item['starttime'];
+            }
+
+            if (isset($item['endtime'])) {
+                $endtime = $item['endtime'];
+            }
+
+        } else {
+
+            if (method_exists($item, 'getHidden')) {
+                $hidden = $item->getHidden();
+            }
+
+            if (method_exists($item, 'getDisable')) {
+                $disable = $item->getDisable();
+            }
+
+            if (method_exists($item, 'getStarttime')) {
+                $starttime = $item->getStarttime();
+            }
+
+            if (method_exists($item, 'getEndtime')) {
+                $endtime = $item->getEndtime();
+            }
+        }
+
+        if ($starttime instanceof \DateTime) {
+            $starttime = $starttime->getTimestamp();
+        }
+
+        if ($endtime instanceof \DateTime) {
+            $endtime = $endtime->getTimestamp();
+        }
+
+        if ($hidden || $disable) {
             return 'overlay-hidden';
         }
 
-        if (method_exists($arguments['item'], 'getDisable') && $arguments['item']->getDisable()) {
-            return 'overlay-hidden';
-        }
+        $now = (new \DateTime())->getTimestamp();
 
-        if (!method_exists($arguments['item'], 'getEndtime')) {
-            return '';
-        }
-
-        $now = new \DateTime();
-
-        if ($arguments['item']->getEndtime() && $now > $arguments['item']->getEndtime()) {
+        if ($endtime && $now > $endtime) {
             return 'overlay-endtime';
         }
 
-        if (!method_exists($arguments['item'], 'getEndtime')) {
+        if (!$starttime) {
             return '';
         }
 
         if (
-            ($arguments['item']->getStarttime() && $now < $arguments['item']->getStarttime()) ||
-            ($arguments['item']->getEndtime() && $now < $arguments['item']->getEndtime())
+            ($starttime && $now < $starttime) ||
+            ($endtime && $now < $endtime)
         ) {
             return 'overlay-scheduled';
         }
