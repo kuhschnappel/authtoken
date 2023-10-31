@@ -1,7 +1,7 @@
 <?php
 return [
     'ctrl' => [
-        'title' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang_db.xlf:tx_authtoken_domain_model_token',
+        'title' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang.xlf:tx_authtoken_domain_model_token',
         'descriptionColumn' => 'note',
         'label' => 'note',
         'label_alt' => 'uid',
@@ -21,7 +21,7 @@ return [
         ],
     ],
     'types' => [
-        '0' => ['showitem' => 'token, last_access, usage_counter, note, --div--; LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, hidden, starttime, endtime'],
+        '0' => ['showitem' => 'token, last_access, usage_counter, note, --div--; LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access, starttime, endtime'],
     ],
     'columns' => [
         'hidden' => [
@@ -64,7 +64,7 @@ return [
         ],
         'note' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang_db.xlf:tx_authtoken_domain_model_token.note',
+            'label' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang.xlf:tx_authtoken_domain_model_token.note',
             'config' => [
                 'type' => 'text',
                 'rows' => 10,
@@ -73,7 +73,7 @@ return [
         ],
         'token' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang_db.xlf:tx_authtoken_domain_model_token.token',
+            'label' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang.xlf:tx_authtoken_domain_model_token.token',
             'config' => [
                 'type' => 'input',
                 'size' => 20,
@@ -86,7 +86,7 @@ return [
         ],
         'last_access' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang_db.xlf:tx_authtoken_domain_model_token.last_access',
+            'label' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang.xlf:tx_authtoken_domain_model_token.last_access',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
@@ -97,11 +97,17 @@ return [
         ],
         'usage_counter' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang_db.xlf:tx_authtoken_domain_model_token.usage_counter',
+            'label' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang.xlf:tx_authtoken_domain_model_token.usage_counter',
             'config' => [
                 'type' => 'input',
                 'readOnly' => 1,
                 'size' => 10
+            ],
+        ],
+        'feuser_uid' => [
+            'label' => 'feuser_uid',
+            'config' => [
+                'type' => 'passthrough',
             ],
         ],
     ],
