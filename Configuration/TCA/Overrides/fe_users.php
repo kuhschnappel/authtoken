@@ -5,7 +5,7 @@ defined('TYPO3') or die();
     [
         'tx_authtoken_domain_model_token' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang_db.xlf:tx_authtoken_domain_model_token',
+            'label' => 'LLL:EXT:authtoken/Resources/Private/Language/locallang.xlf:tx_authtoken_domain_model_token',
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_authtoken_domain_model_token',
