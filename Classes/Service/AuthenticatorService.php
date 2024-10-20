@@ -1,6 +1,7 @@
 <?php
 namespace Kuhschnappel\Authtoken\Service;
 
+use Doctrine\DBAL\ParameterType;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Authentication\AbstractAuthenticationService;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
@@ -128,10 +129,11 @@ class AuthenticatorService extends AbstractAuthenticationService
         $queryBuilder->select('uid')
             ->from('fe_users')
             ->where(
-                $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($user['uid'], \PDO::PARAM_INT))
+                $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($user['uid'], ParameterType::INTEGER))
             )
             ->setMaxResults(1);
-        if ($queryBuilder->execute()->fetch() === false)
+
+        if ($queryBuilder->executeQuery()->fetchOne() === false)
             return $this->authenticatedUser;
 
         // update token only on authUserFE subtype

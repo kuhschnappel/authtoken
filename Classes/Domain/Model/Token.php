@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Kuhschnappel\Authtoken\Domain\Model;
 
+use Doctrine\DBAL\ParameterType;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
@@ -150,11 +151,11 @@ class Token extends AbstractEntity
         $queryBuilder->select('uid', 'disable', 'starttime', 'endtime', 'username')
             ->from('fe_users')
             ->where(
-                $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($this->feuserUid, \PDO::PARAM_INT))
+                $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($this->feuserUid, ParameterType::INTEGER))
             )
             ->setMaxResults(1);
 
-        $statement = $queryBuilder->execute();
+        $statement = $queryBuilder->executeQuery();
 
         $result = $statement->fetch();
 
