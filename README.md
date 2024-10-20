@@ -25,7 +25,7 @@ You can change the variable name used for token authentication.
 
 | Version     | Release Date | Description                                            |
 |-------------|--------------|--------------------------------------------------------|
-| 2.2.0       | 2024-10-20   | Add TYPO3 v13 support.                                 |
+| 2.4.0       | 2024-10-20   | Add TYPO3 v13 support.                                 |
 | 2.1.0       | 2023-09-03   | Add usage counter.                                     |
 |             |              | Bugfix service integration to prevent doubled request. |
 | 2.1.1       | 2023-09-03   | Revert Wrong Bugfix.                                   |
